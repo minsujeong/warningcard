@@ -27,7 +27,7 @@ import com.flum.warningcard.ui.theme.YellowWarning
 class MainActivity : ComponentActivity() {
 
     companion object {
-        const val WARNING_INTERVAL_MINUTE = 1
+        const val WARNING_INTERVAL_MINUTE = 5
     }
 
     lateinit var sp : SharedPreferences
@@ -40,7 +40,10 @@ class MainActivity : ComponentActivity() {
         }
 
         sp = getSharedPreferences("time", MODE_PRIVATE)
+    }
 
+    override fun onResume() {
+        super.onResume()
         setContent {
             WarningCardTheme(darkTheme = false) {
                 Surface(
